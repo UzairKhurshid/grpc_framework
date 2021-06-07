@@ -1,0 +1,15 @@
+Tutorial Link
+https://adityasridhar.com/posts/how-to-easily-use-grpc-and-protocol-buffers-with-nodejs
+
+
+
+
+function getEmployee() {
+  return "ABCD";
+}
+
+function greetEmployee()
+{
+    let employee = getEmployee();
+    console.log("Greet",employee) 
+} 

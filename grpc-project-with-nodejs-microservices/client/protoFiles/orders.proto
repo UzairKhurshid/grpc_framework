@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+service OrderService {
+    rpc GetAll (Empty) returns (OrderList) {}
+}
+
+message Empty {}
+
+message Order {
+    string id = 1;
+    string title = 2;
+    int32 price = 3;
+    string userID = 4;
+}
+
+message OrderList {
+    repeated Order orders = 1;
+}

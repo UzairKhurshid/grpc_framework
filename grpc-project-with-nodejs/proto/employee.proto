@@ -1,0 +1,32 @@
+syntax = "proto3";   // indicates that we want to use Protocol Buffer version 3.
+
+package employee;   // indicates that we are creating a package called as employee within which we will define our services
+
+service Employee {
+
+  rpc getDetails (EmployeeRequest) returns (EmployeeResponse) {}
+}
+
+// The Above script tells that We are creating a Service called as Employee. Within this service we are creating a function ( rpc ) called as getDetails which accepts input of type EmployeeRequest and provides response in the format EmployeeResponse
+
+message EmployeeRequest {
+  int32 id = 1;
+}
+
+// Here we see that the message EmployeeRequest has a single field of type int32 and name id. The number 1 assigned here is a field number and it helps during encoding and decoding of the message. Every field defined should have a unique field number
+
+message EmployeeResponse{
+  EmployeeDetails message = 1;
+}
+
+// We also see that EmployeeResponse has a custom field of type EmployeeDetails and name message having field number of 1. This means that even EmployeeDetails has to be defined which is shown above as well.
+
+message EmployeeDetails {
+  int32 id = 1;
+  string email = 2;
+  string firstName = 3; 
+  string lastName = 4;
+}
+
+// EmployeeDetails has 4 fields comprising types int32 and string. All of them have unique field numbers
+// Field numbers between 1 -15 use 1 byte of space during encoding. and field numbers from 2 - 2047 uses 2 bytes for encoding and hence will take up more space. So try to design in such a way that the field numbers are between 1 - 15 as much as possible
